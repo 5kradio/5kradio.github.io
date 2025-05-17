@@ -1,104 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 html {
     font-size: 16px;
-    font-family: 'Libre Franklin', sans-serif;
 
-    margin: 0px;
-    padding: 0px;
+    margin: 0px 0px;
+    padding: 0px 0px;
     scroll-behavior: smooth;
 
-    background-color: #f6f6f6;
-    
-    font-family: 'Libre Franklin', sans-serif;
+    background-color: chartreuse;
+    font-family: monospace;
+    color: white;
+
 }
 
+pre {
+    all: unset;
+    font-family: monospace;
+    white-space: pre;
+    display: block;
+  }
+
+.anarchy-cloud {
+    background-color: #000;
+    color: #ff0033;
+    font-family: monospace;
+    font-size: 16px;
+    padding: 30px;
+    border: 2px solid #660000;
+    border-radius: 10px;
+    text-align: center;
+    white-space: pre-wrap;
+    box-shadow: 0 0 15px #ff0033;
+    text-shadow: 0 0 5px #ff0033, 0 0 10px #ff0033;
+    max-width: 90%;
+    margin: 40px auto;
+  }
+  
+
 a {
-    color: black;
-    }
+    color: chartreuse;
+}
 
-a:link {
-    text-decoration: none;
-    }
+.news-banner {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 2px solid #fff;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
   
-a:visited {
-    text-decoration: none;
-    }
+  .news-scroll {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 20s linear infinite;
+  }
   
-a:hover {
-    border-bottom: solid 2px #AEAEAE; 
-    padding-bottom: 5px; /*permet d'ajouter de l'espace supplémentaire quand ::hover*/
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
     }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Push down main content so it doesn't go under banner */
+  .main-doc {
+    margin-top: 40px;
+  }
+  
 
- /*Default layout*/
    
 body {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 100%;  
-    margin: 0px;
+    justify-content: flex-end;
+    width: 100%; 
+    height: 100vh;
     } /* allows my two elements to be displayed */
    
-   
-.navbar {
-    width: 264px; /*fixed width*/
-    height: 100%; /*sets heigh to full page*/
-    
-    display: flex; /*creates flexbox for navbar elemets*/
-    flex-direction: column; /*primary axis is vertical*/
 
-    border-right: solid 2px #AEAEAE; /*creates border to seperate nav and main doc*/
-    position: fixed; /*this position allows the navbar to not move when scrolling*/ 
-    
-    text-align: center;/*text aligned center within the 264px weight*/
-    }
 
-.navbar-header {
-    width: 100%; /*element occupies 100% of the width avalible but this moves the center*/
-    height: auto; /*element occupies 100% of the width*/
-
-    padding: 20px 0 20px 0;
-
-    font-size: 2.4rem;
-    font-style: italic;
-    text-align: center; /*text is centered reltive to to proportions of it's parent element this allows be to put a border filling the whole space and retain a centered text*/
-
-    font-weight: 900; /*allows better visibility for the topic */
-
-    border-bottom: solid 2px #AEAEAE; /*creates border*/
-    animation: color 3s  0.3s infinite alternate;
-    }
-
-@keyframes color {   
-    0%   {color: black;}
-    50% {color: blue}
-    100% {color: red;}
-    }
-   
-.nav-links {
-    height: 100%;/*sets vertical space*/
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; /*evenly distribute the links within the space*/
-    /*this flex is applied to the container, it allows to display each link on a vertical stack and within the vertival stack space each link evenly betwee each other*/
-    }
-   
-.nav-links a {
-    font-size: 1.35rem;
-    }
-   
 .main-doc {
 
     display: flex; /*display flex to avoid text overflow and lateral scroll*/
     flex-direction: column;
-    
+    justify-content: flex-end;
+    background: black;
+    height: 100vh;
     max-width: 100%; /*This also the text to not overflow*/
 
-    padding: 0 20px 0 20px; /*Padding allows the list items from the main content to not overlap the navbar*/
-    margin-left: 264px; /*because the navbar has a fixed position it does not flow with teh rest, setting the margin to 300px allows to counter act this effect*/
-    margin-top: 20px;/*add space on top for esthetic purposes*/
-    }
+    padding: 20px;
    
     .main-doc header {
     font-size: 1.6rem;
@@ -162,7 +160,7 @@ body {
             font-size: 1.15rem;
         list-style: none;
         }
-
+    }
 #icon {
     margin-right: 5px;
 }
@@ -180,51 +178,14 @@ body {
     }
 
 
-@media screen and (max-width:564px) /*Un media query pour assurer le responsive*/
-    {
-    .navbar {
-        padding: 0px;
-        margin: 0px;
-        width: 100%;
-        height: 300px;
-        position: relative; /*Assure un bon comportement de la navbar*/
-        border-right: none; /*fait disparaitre la bar de droite */
-        }
 
-    .main-doc {
-        padding:0px 0px 0px 0px;
-        margin: 0px 0px 0px 0px;
-        width: 100vw;
-        overflow: hidden;
-        }
-
-    .main-doc header {
-        margin-left: 5px;
-        } /*This allows for better legibility while n mobile mode*/
-    }
-           /*Ce petit container me permet d'avoir un boutton retour sur le haut assez accessible, même si la bonne manière aurait été de faire un footer*/
-
-
-.return-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    }
 
 .footer {
     display: flex;
-    justify-content: space-evenly;
-
-    margin-left: 300px;
+    justify-content: space-around;
+    font-size: 12px;
+    color: purple;
+  
     }
 
-.footer p{
-    font-size: 0.8rem;
-    }
 
-@media screen and (max-width:564px) /*Un media query pour assurer le responsive*/
-    {
-    .footer {
-        margin-left: 0px;
-        }
-    }
