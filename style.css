@@ -1,15 +1,21 @@
-
 html {
     font-size: 16px;
-
-    margin: 0px 0px;
-    padding: 0px 0px;
+    margin: 0;
+    padding: 0;
     scroll-behavior: smooth;
-
     background-color: chartreuse;
     font-family: monospace;
     color: white;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 100vw;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
 }
 
 pre {
@@ -17,24 +23,7 @@ pre {
     font-family: monospace;
     white-space: pre;
     display: block;
-  }
-
-.anarchy-cloud {
-    background-color: #000;
-    color: #ff0033;
-    font-family: monospace;
-    font-size: 16px;
-    padding: 30px;
-    border: 2px solid #660000;
-    border-radius: 10px;
-    text-align: center;
-    white-space: pre-wrap;
-    box-shadow: 0 0 15px #ff0033;
-    text-shadow: 0 0 5px #ff0033, 0 0 10px #ff0033;
-    max-width: 90%;
-    margin: 40px auto;
-  }
-  
+}
 
 a {
     color: chartreuse;
@@ -53,139 +42,135 @@ a {
     position: fixed;
     top: 0;
     z-index: 1000;
-  }
-  
-  .news-scroll {
+}
+
+.news-scroll {
     display: inline-block;
     padding-left: 100%;
     animation: scroll-left 20s linear infinite;
-  }
-  
-  @keyframes scroll-left {
+}
+
+@keyframes scroll-left {
     0% {
-      transform: translateX(0%);
+        transform: translateX(0%);
     }
     100% {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
-  }
-  
-  /* Push down main content so it doesn't go under banner */
-  .main-doc {
-    margin-top: 40px;
-  }
-  
+}
 
-   
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%; 
-    height: 100vh;
-    } /* allows my two elements to be displayed */
-   
-
-
+/* Push content below the fixed news banner */
 .main-doc {
-
-    display: flex; /*display flex to avoid text overflow and lateral scroll*/
+    margin-top: 40px;
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     background: black;
     height: 100vh;
-    max-width: 100%; /*This also the text to not overflow*/
-
+    max-width: 100%;
     padding: 20px;
-   
-    .main-doc header {
+    box-sizing: border-box;
+}
+
+.main-doc header {
     font-size: 1.6rem;
-    margin: 40px 0 40px 0;
+    margin: 40px 0;
     text-decoration: underline;
-    }
-    
-    .main-doc h1 {
+}
+
+.main-doc h1 {
     font-size: 1.15rem;
     padding: 5px;
     margin: 20px;
     overflow: hidden;
-    }
-    
-    .main-doc p {
+}
+
+.main-doc p {
     font-size: 1.15rem;
     padding: 5px;
     margin: 20px;
-    }
-    
-    
-        .find-container { /*This container is to be able to display the two lists side by side et encases both of my ul. */
-        display: flex;
-        flex-direction: row; /*allows side by side display*/
-        justify-content: space-evenly; /*for aesthetics*/
-        align-items: center;
-    
-        width:100%;
-        margin: 20px;
-        }
+}
 
-        .find-container p { /*removes any inherited padding and margin*/
-        padding: 5px;
-        margin: 0px;
-        }
+/* FIND SECTION */
+.find-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px;
+    gap: 20px;
+    flex-wrap: wrap; /* Helps wrapping on small screens */
+}
 
-        .find-container ul { /*bis repetita*/
-        margin: 0px;
+.find-container p {
+    padding: 5px;
+    margin: 0;
+}
 
-        }
-        
-        .find-container ul li { /*sets my list style*/ 
-        font-size: 1.15rem;
-        padding: 20px 0 0px 0;
-        list-style: none;
-        }
-    
-        .find-subcontainer { /*this is the container for the actual li's. This allows to display their content verticaly*/
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        }
-        
-        .find-subcontainer p {
-            font-weight: 800;
-            text-align: left;
-        }
+.find-container ul {
+    margin: 0;
+    padding: 0;
+}
 
-        .contact-container{
-            font-size: 1.15rem;
-        list-style: none;
-        }
-    }
+.find-container ul li {
+    font-size: 1.15rem;
+    padding: 20px 0 0 0;
+    list-style: none;
+}
+
+.find-subcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.find-subcontainer p {
+    font-weight: 800;
+    text-align: left;
+}
+
+.contact-container {
+    font-size: 1.15rem;
+    list-style: none;
+}
+
 #icon {
     margin-right: 5px;
 }
-
-@media screen and (max-width:646px) /*Un media query pour assurer le responsive*/
-    {
-    .find-container {
-        flex-direction: column;
-        width: 100%;
-        }
-    .find-subcontainer {
-        margin-top: 40px;
-    }
-    
-    }
-
-
-
 
 .footer {
     display: flex;
     justify-content: space-around;
     font-size: 12px;
     color: purple;
-  
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+/* ✅ MEDIA QUERY FOR MOBILE */
+@media screen and (max-width: 646px) {
+    .find-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
+    .find-subcontainer {
+        margin-top: 20px;
+        width: 100%;
+    }
 
+    .main-doc {
+        padding: 10px;
+        height: auto;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+}
