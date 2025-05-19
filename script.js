@@ -1,8 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const playerDiv = document.querySelector('.player');
     const playBtn = document.getElementById("playBtn");
     const pauseBtn = document.getElementById("pauseBtn");
     const audioPlayer = document.getElementById("audioPlayer");
     const statusText = document.getElementById("statusText");
+    // Detect if the user is on Safari or iPhone
+    function isSafariOrIphone() {
+        const ua = navigator.userAgent;
+        const isIphone = /iPhone/.test(ua);
+        // Safari detection: look for "Safari" but exclude Chrome or Chromium browsers
+        const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+        return isIphone || isSafari;
+    }
+
 
     playBtn.addEventListener("click", () => {
         audioPlayer.play();
@@ -103,4 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
     resizeCanvas();
     initStars();
     animate();
+
+    if (isSafariOrIphone()) {
+        playerDiv.innerHTML = '<p style="color:chartreuse; font-size:12px; padding:0px 4px;">Stream Incompatible. So sad :,/</p>';
+    }
 });
+  
+
