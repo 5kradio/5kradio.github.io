@@ -104,6 +104,7 @@ text-decoration: underline;
     flex-direction: column;
     justify-content: space-between;
     background: transparent;
+    margin-top: 60px;
     height: 100vh;
     max-width: 100%;
     box-sizing: border-box;
@@ -117,15 +118,13 @@ text-decoration: underline;
 
 .main-doc h1 {
     font-size: 1.15rem;
-    padding: 5px;
     margin: 20px;
     overflow: hidden;
 }
 
 .main-doc p {
-    font-size: 1.15rem;
-    padding: 5px;
-    margin: 20px;
+
+    padding: 20px;
 }
 
 /* FIND SECTION */
