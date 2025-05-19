@@ -22,10 +22,19 @@
             <span>🎧 Tune in to the latest shows on 5k Radio — 🌀 23 1312 420  — 📸 Dive into our world of sound — 🌍 capitalism is destroying us — 💌 Reach us at 5kstereoradio[AT]gmail.com</span>
         </div>
     </div>
+    <div class="player">
+        <div class="player-container">
+            <span>
+            <button id="playBtn">play</button>
+            <button id="pauseBtn">pause</button>
+            </span>
+            <span id="statusText">Status: online</span>
+        </div>
+    </div>
+    
+    <audio id="audioPlayer" src="https://5kradiostream.ddns.net:8443/stream.ogg" preload="auto"></audio>
 
-    <main id="main-doc" class="main-doc">
-        <audio src="https://5kradiostream.ddns.net:8443/stream.ogg" controls autoplay></audio>
-            
+    <main id="main-doc" class="main-doc">          
         <div class="find-subcontainer">
             <p>Listen & Follow:</p>
             <ul>
@@ -63,6 +72,9 @@
         <p class="version">Cyber-Home v2.0</p>
         <p>Broadcasting since 2021</p>
     </footer>
+    <canvas id="bgCanvas"></canvas>
+    <script src="script.js"></script>
+
 </body>
 
 </html>
