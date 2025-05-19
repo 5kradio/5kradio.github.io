@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const playerDiv = document.querySelector('.player');
+    const playerDiv = document.querySelector('.player-span');
     const playBtn = document.getElementById("playBtn");
     const pauseBtn = document.getElementById("pauseBtn");
     const audioPlayer = document.getElementById("audioPlayer");
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
 
     if (isSafariOrIphone()) {
-        playerDiv.innerHTML = '<p style="color:chartreuse; font-size:12px; padding:0px 4px;">Stream Incompatible. So sad :,/</p>';
+        playerDiv.innerHTML = '<p style="color:#0049FF; font-size:8px; padding:0px 4px;">Stream Incompatible. So sad :,/</p>';
     }
 });
   
