@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseBtn.classList.add('active-btn');
 
     async function checkStreamStatus() {
+      statusText.textContent = "Status: loading...";
+       statusText.classList.add('loading-stream');
         try {
             const response = await fetch(audioPlayer.src);
             if (response.ok) {
@@ -115,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
 
     if (isSafariOrIphone()) {
-        playerDiv.innerHTML = '<p style="color:#0049FF; font-size:8px; padding:0px 4px;">Stream Incompatible. So sad :,/</p>';
+        playerDiv.innerHTML = '<p style="color:#0049FF; font-size:10px; padding:0px 4px;">Stream Incompatible. So sad :,/</p>';
     }
 });
 

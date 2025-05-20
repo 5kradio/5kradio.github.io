@@ -87,6 +87,10 @@ button {
     color: #05FF00;
 }
 
+.loading-stream {
+    color: #FF5C11;
+}
+
 .offline-stream {
     color: #DB303D;
 }
