@@ -35,8 +35,32 @@
     </div>
     
     <audio id="audioPlayer" src="https://5kradiostream.ddns.net:8443/stream.ogg" ></audio>
-
-    <main id="main-doc" class="main-doc">          
+<div id="chat-box" class="chat-box-container">
+            <p
+            class="chat-box-title"
+            >message board</h2>
+            <div id="messages-container" class="messages-container">
+                <p>Loading messages...</p>
+            </div>
+        
+            <form id="message-form" class="message-form">
+                <input 
+                    type="text" 
+                    id="nickname" 
+                    placeholder="Your nickname" 
+                    maxlength="32"
+                >
+                <textarea 
+                    id="message" 
+                    placeholder="Type your message here..." 
+                    rows="3" 
+                    maxlength="280" 
+                    required
+                ></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>     
+    <main id="main-doc" class="main-doc">     
         <div class="find-subcontainer">
             <ul>
                 <li><a href="https://5kradiostream.ddns.net">live audio</a></li>
@@ -48,7 +72,6 @@
                 <li><a href="https://www.instagram.com/5kradio/">ig</a></li>
             </ul>
         </div>
-
         <div class="find-subcontainer">
             <p>Broadcasting from:</p>
             <ul>
