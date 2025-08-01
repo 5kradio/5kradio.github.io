@@ -205,21 +205,30 @@ function loadMessages() {
   });
 
   async function fetchSoundCloudTracks(){
-    console.log("fetching soundcloud tracks")
        fetch("https://5k-radio-cyber-backend-production.up.railway.app/tracks").then(
        resolve => resolve.json()
        ).then(data => {
-        console.log(data)
-        // let name = `${data.results[0].name.title} ${data.results[0].name.first} ${data.results[0].name.last}`
-        // document.querySelector("#name").innerHTML = name
-        // document.querySelector("#email").innerHTML = data.results[0].email
-        // document.querySelector("#phone").innerHTML = data.results[0].phone
-        // document.querySelector("#age").innerHTML = data.results[0].dob.age
-        // document.querySelector("#gender").innerHTML = data.results[0].gender
+         for (let track =0 ; track <= data.length-1; track++){
+            let img = document.createElement('img');
+            img.classList="track"
+            img.src = `${data[track].artwork_url}`
+            img.alt = `${data[track].title} - ${data[track].metadata_artist}`
+            img.onclick = () => window.open(data[track].permalink_url, "_blank");
+            let p = document.createElement('p')
+            p.classList="track-name"
+            p.innerText=`${data[track].title} - ${data[track].metadata_artist}`
+            let div = document.createElement('div')
+            div.id = `track-container-${track}`
+            document.getElementById('latest-tracks').appendChild(div)
+            document.getElementById(`track-container-${track}`).appendChild(img);
+            document.getElementById(`track-container-${track}`).appendChild(p);
+        
+        }
       })
     .catch((err) => {
     console.log(err);
     })
 }
+
 
 fetchSoundCloudTracks()

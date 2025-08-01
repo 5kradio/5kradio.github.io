@@ -22,6 +22,17 @@ body {
   
 }
 
+.latest-tracks {
+    display: flex;
+}
+.track {
+    cursor: pointer;
+    margin: 10px;
+}
+.track-name {
+    font-size: 8px;
+    margin: 10px;
+}
 
 pre {
     all: unset;
