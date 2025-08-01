@@ -204,3 +204,22 @@ function loadMessages() {
     }
   });
 
+  async function fetchSoundCloudTracks(){
+    console.log("fetching soundcloud tracks")
+       fetch("https://5k-radio-cyber-backend-production.up.railway.app/tracks").then(
+       resolve => resolve.json()
+       ).then(data => {
+        console.log(data)
+        // let name = `${data.results[0].name.title} ${data.results[0].name.first} ${data.results[0].name.last}`
+        // document.querySelector("#name").innerHTML = name
+        // document.querySelector("#email").innerHTML = data.results[0].email
+        // document.querySelector("#phone").innerHTML = data.results[0].phone
+        // document.querySelector("#age").innerHTML = data.results[0].dob.age
+        // document.querySelector("#gender").innerHTML = data.results[0].gender
+      })
+    .catch((err) => {
+    console.log(err);
+    })
+}
+
+fetchSoundCloudTracks()
